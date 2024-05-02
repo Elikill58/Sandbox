@@ -9,7 +9,7 @@ jobs:
       - name: "Update and install dependencies"
         run: |
           sudo apt-get update
-          sudo apt-get -y install gcc g++ make cmake gdb freeglut3 libglew
+          sudo apt-get -y install gcc g++ make cmake gdb freeglut3 libglew-dev
       - name: Build
         run: bash unix_run.sh
       - name: Upload Artifact to GitHub Action

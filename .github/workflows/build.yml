@@ -4,15 +4,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: owasp/zap2docker-stable
-      options: --user root
     steps:
-      - uses: actions/checkout@v3
-      - name: "Be sure it's up-to-date"
-        run: sudo apt update && apt upgrade -y
-      - name: Install dependencies
-        run: sudo apt install -y gcc g++ make cmake gdb freeglut3 libglew
+      - uses: actions/checkout@v4
+      - name: "Update and install dependencies"
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install gcc g++ make cmake gdb freeglut3 libglew
       - name: Build
         run: bash unix_run.sh
       - name: Upload Artifact to GitHub Action

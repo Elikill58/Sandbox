@@ -78,6 +78,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC libraries/GLM)
 
 # OpenGL
 if (MINGW OR MSVC)
+	set(OpenGL_GL_PREFERENCE LEGACY)
 	add_definitions(-DGLEW_STATIC)
 	target_link_libraries(${PROJECT_NAME} PRIVATE libglew_static)
 else()

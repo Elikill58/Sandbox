@@ -4,6 +4,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: owasp/zap2docker-stable
+      options: --user root
     steps:
       - uses: actions/checkout@v3
       - name: "Be sure it's up-to-date"

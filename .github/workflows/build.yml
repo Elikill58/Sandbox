@@ -12,8 +12,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install gcc g++ make cmake gdb freeglut3 libglew-dev
-      - name: Build
-        run: bash unix_run.sh
+      - name: Build for windows
+        run: cmake -G "Visual Studio 16 2019" -A x64 -B "./build" .
       - name: Upload Artifact to GitHub Action
         uses: actions/upload-artifact@v4
         with:

@@ -11,7 +11,7 @@ jobs:
 
       - uses: ilammy/msvc-dev-cmd@v1.4.1
       - name: Run VS for 64 bits
-        run: vs64_run.bat
+        run: ./vs64_run.bat
       - name: Configure CMake
         shell: bash
         run: cmake -G "Visual Studio 16 2019" -A x64 -B "./build" .
